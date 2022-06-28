@@ -10,7 +10,7 @@ const TopUpCard = () => {
             <Card  style={styles.roundedStyle}>
                 <VStack space={1} justifyContent="center" p='2'>
                     <SimpleLineIcons name="call-out" size={24} color="black" />
-                    <Text>Payments</Text>
+                    <Text>Top Up</Text>
                 </VStack>
             </Card>
 
