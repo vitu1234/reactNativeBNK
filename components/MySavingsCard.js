@@ -2,15 +2,18 @@ import React from 'react';
 import {Card, HStack, Progress, Text, VStack, Center} from "native-base";
 import {View, StyleSheet, Dimensions} from "react-native";
 import {MaterialIcons} from '@expo/vector-icons';
-import {parse} from "react-native-svg";
+import numbro from "numbro"
 
 const {width} = Dimensions.get('window');
 
 function MySavingsCard(props) {
 
     const item = props.data.item;
-    const amount_saved = "K" + parseInt(props.data.amount_saved).toLocaleString();
-    const target_amount = "K" + (parseInt(props.data.target_amount)).toLocaleString();
+    const amount_saved = "K" + numbro(props.data.amount_saved).format({thousandSeparated: true, mantissa: 2});
+    const target_amount = "K" + numbro(parseInt(props.data.target_amount)).format({
+        thousandSeparated: true,
+        mantissa: 2
+    });
     const percentage = (parseInt(props.data.amount_saved) / parseInt(props.data.target_amount)) * 100;
     let colorSchemeProgress = '';
     if (percentage >= 50) {
@@ -65,5 +68,6 @@ const style = StyleSheet.create({
         shadowOffset: {width: 0, height: 1}
     }
 })
+
 
 export default MySavingsCard;

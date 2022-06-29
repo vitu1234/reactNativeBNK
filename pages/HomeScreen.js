@@ -9,6 +9,7 @@ import PaymentsCard from "../components/PaymentsCard";
 import TopUpCard from "../components/TopUpCard";
 import {Dimensions} from 'react-native';
 import MySavingsCard from "../components/MySavingsCard";
+import TransactionCards from "../components/TransactionCards";
 
 
 const windowWidth = Dimensions.get('window').width;
@@ -68,7 +69,35 @@ export default function HomeScreen({navigation}) {
 
                         </ScrollView>
 
+                        <LeftRightElementCard mt={3} style={s.greetings} name={'Recent Transactions'} action={'d'}
+                                              actionText={'See All'}/>
+                        <ScrollView
+                            ref={(scrollView) => {
+                                scrollView = scrollView;
+                            }}
+                            // style={s.container}
+                            //pagingEnabled={true}
+                            showsHorizontalScrollIndicator={false}
+                            horizontal={false}
+                            decelerationRate={0}
+                            snapToInterval={width - 60}
+                            snapToAlignment={"center"}
+                            contentInset={{
+                                top: 0,
+                                left: 30,
+                                bottom: 0,
+                                right: 30,
+                            }}>
+                            <TransactionCards data={{name: 'Bridget Uledi', type: 'Transfer', amount: '30000'}}/>
+                            <TransactionCards
+                                data={{name: 'Airtime Purchase by 0996670686dkjfkfjkjf fkfjjkfdjhkf', type: 'TopUp', amount: '2000'}}/>
+                            <TransactionCards data={{name: 'Cash Deposit', type: 'Deposit', amount: '300000'}}/>
+                            <TransactionCards data={{name: 'Cash Withdrawal', type: 'Transfer', amount: '12000'}}/>
+
+                        </ScrollView>
+
                     </VStack>
+
                 </Center>
             </ScrollView>
 
@@ -96,8 +125,8 @@ const s = StyleSheet.create({
         // backgroundColor: 'red',
         // paddingStart:20,
         // paddingEnd:20,
-        margin: 10,
-        width: '100%'
+        // margin: 10,
+        // width: '100%'
 
     }, view: {
         // marginTop: 100,

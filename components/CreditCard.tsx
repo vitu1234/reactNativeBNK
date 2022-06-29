@@ -8,7 +8,7 @@ export default function CreditCard({
                                        suffix,
                                        style,
                                        textColor = "white",
-                                       bgColor = "#0047cc"
+                                       bgColor = "#02286f"
                                    }: {
     name: string;
     date: string;
