@@ -1,6 +1,6 @@
 import React from 'react';
 import {Card, HStack, Progress, Text, VStack, Center} from "native-base";
-import {View, StyleSheet, Dimensions} from "react-native";
+import {View, StyleSheet, Dimensions, TouchableOpacity} from "react-native";
 import {MaterialIcons} from '@expo/vector-icons';
 import numbro from "numbro"
 
@@ -21,9 +21,15 @@ function MySavingsCard(props) {
     } else {
         colorSchemeProgress = 'warning';
     }
+
+    function onTouchs() {
+        console.log("sksks")
+    }
+
     return (
         <View>
-            <Card style={style.view}>
+            <TouchableOpacity onPress={onTouchs}>
+            <Card pointerEvents={'none'} style={style.view}>
                 <VStack>
                     <HStack space={2} style={{width: '100%'}}>
 
@@ -51,6 +57,7 @@ function MySavingsCard(props) {
                 </VStack>
 
             </Card>
+            </TouchableOpacity>
         </View>
     );
 }

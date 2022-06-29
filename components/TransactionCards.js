@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Card, Text, Box, VStack, Center, HStack, Progress} from "native-base";
 import {Feather} from '@expo/vector-icons';
-import {View, StyleSheet, Dimensions} from "react-native";
+import {View, StyleSheet, Dimensions, TouchableOpacity} from "react-native";
 import numbro from "numbro"
 
 
@@ -17,44 +17,45 @@ const TransactionCards = (props) => {
     return (
         <View style={{width: width - 50}}>
 
+            <TouchableOpacity>
+                <Box style={style.view}>
+                    <VStack style={{height: '100%'}}>
+                        <HStack space={2} style={{width: '100%'}}>
+                            <Card style={style.card2}>
+                                <Feather style={{margin: 10}} name="dollar-sign" size={17} color="black"/>
+                            </Card>
 
-            <Box style={style.view}>
-                <VStack style={{height: '100%'}}>
-                    <HStack space={2} style={{width: '100%'}}>
-                        <Card style={style.card2}>
-                            <Feather style={{margin: 10}} name="dollar-sign" size={17} color="black"/>
-                        </Card>
-
-                        <Center mt={2}>
-                            <Text numberOfLines={1}
-                                  style={{marginEnd: 2, fontSize: 15, fontWeight: "bold", textAlign: "center"}}>
-                                {name}
-                            </Text>
-                            <Text numberOfLines={1} style={{fontSize: 12, color: 'grey', marginRight: 'auto'}}>
-                                {type}
-                            </Text>
-
-
-                        </Center>
-                        <Box style={{marginLeft: 'auto'}} mt={4}>
                             <Center mt={2}>
-                                <Text mt={4} numberOfLines={1}
-                                      style={{
-                                          fontSize: 10,
-                                          fontStyle: 'italic',
-                                          fontWeight: "bold",
-                                          textAlign: "right"
-                                      }}>
-                                    {amount}
+                                <Text numberOfLines={1}
+                                      style={{marginEnd: 2, fontSize: 15, fontWeight: "bold", textAlign: "center"}}>
+                                    {name}
                                 </Text>
+                                <Text numberOfLines={1} style={{fontSize: 12, color: 'grey', marginRight: 'auto'}}>
+                                    {type}
+                                </Text>
+
+
                             </Center>
-                        </Box>
+                            <Box style={{marginLeft: 'auto'}} mt={4}>
+                                <Center mt={2}>
+                                    <Text mt={4} numberOfLines={1}
+                                          style={{
+                                              fontSize: 10,
+                                              fontStyle: 'italic',
+                                              fontWeight: "bold",
+                                              textAlign: "right"
+                                          }}>
+                                        {amount}
+                                    </Text>
+                                </Center>
+                            </Box>
 
-                    </HStack>
+                        </HStack>
 
-                </VStack>
+                    </VStack>
 
-            </Box>
+                </Box>
+            </TouchableOpacity>
         </View>
     );
 };
