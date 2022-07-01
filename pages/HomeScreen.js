@@ -10,6 +10,7 @@ import TopUpCard from "../components/TopUpCard";
 import {Dimensions} from 'react-native';
 import MySavingsCard from "../components/MySavingsCard";
 import TransactionCards from "../components/TransactionCards";
+import TopUpScreen from "../pages/TopUpScreen";
 
 
 const windowWidth = Dimensions.get('window').width;
@@ -37,7 +38,9 @@ export default function HomeScreen({navigation}) {
                     <HStack style={s.stackCards} p={1} marginTop={1}>
                         <TransfersCard/>
                         <PaymentsCard/>
-                        <TopUpCard/>
+                        <TopUpCard onPress={() =>
+                            navigation.navigate('TopUpScreen')
+                        }/>
                     </HStack>
                     <Divider my="2"/>
                     <VStack style={{width: '100%'}} m={2}>
@@ -90,7 +93,11 @@ export default function HomeScreen({navigation}) {
                             }}>
                             <TransactionCards data={{name: 'Bridget Uledi', type: 'Transfer', amount: '30000'}}/>
                             <TransactionCards
-                                data={{name: 'Airtime Purchase by 0996670686dkjfkfjkjf fkfjjkfdjhkf', type: 'TopUp', amount: '2000'}}/>
+                                data={{
+                                    name: 'Airtime Purchase by 0996670686dkjfkfjkjf fkfjjkfdjhkf',
+                                    type: 'TopUp',
+                                    amount: '2000'
+                                }}/>
                             <TransactionCards data={{name: 'Cash Deposit', type: 'Deposit', amount: '300000'}}/>
                             <TransactionCards data={{name: 'Cash Withdrawal', type: 'Transfer', amount: '12000'}}/>
 
