@@ -37,7 +37,7 @@ export default function HomeScreen({navigation}) {
                     <HStack style={s.stackCards} p={1} marginTop={1}>
                         <TransfersCard/>
                         <PaymentsCard/>
-                        <TopUpCard/>
+                        <TopUpCard />
                     </HStack>
                     <Divider my="2"/>
                     <VStack style={{width: '100%'}} m={2}>
@@ -90,7 +90,11 @@ export default function HomeScreen({navigation}) {
                             }}>
                             <TransactionCards data={{name: 'Bridget Uledi', type: 'Transfer', amount: '30000'}}/>
                             <TransactionCards
-                                data={{name: 'Airtime Purchase by 0996670686dkjfkfjkjf fkfjjkfdjhkf', type: 'TopUp', amount: '2000'}}/>
+                                data={{
+                                    name: 'Airtime Purchase by 0996670686dkjfkfjkjf fkfjjkfdjhkf',
+                                    type: 'TopUp',
+                                    amount: '2000'
+                                }}/>
                             <TransactionCards data={{name: 'Cash Deposit', type: 'Deposit', amount: '300000'}}/>
                             <TransactionCards data={{name: 'Cash Withdrawal', type: 'Transfer', amount: '12000'}}/>
 

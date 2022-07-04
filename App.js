@@ -8,18 +8,10 @@ import HomeScreen from "./pages/HomeScreen";
 import NotificationsScreen from "./pages/NotificationsScreen";
 import {NativeBaseProvider} from "native-base";
 import {EvilIcons} from '@expo/vector-icons';
+import TopUpScreen from "./pages/TopUpScreen";
 
 const Drawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();
-
-function Root() {
-    return (
-        <Drawer.Navigator initialRouteName="Home">
-            <Drawer.Screen name="Home" component={HomeScreen}/>
-            <Drawer.Screen name="Notifications" component={NotificationsScreen}/>
-        </Drawer.Navigator>
-    );
-}
 
 
 export default function App() {
@@ -27,15 +19,18 @@ export default function App() {
         <NativeBaseProvider>
 
             <NavigationContainer>
-                <Stack.Navigator>
-                    <Stack.Screen
-                        name="Root"
-                        component={Root}
-                        options={{headerShown: false}}
-                    />
-                    {/*<Stack.Screen name="Feed" component={Settings}/>*/}
-                </Stack.Navigator>
+                <Drawer.Navigator initialRouteName="Home">
+                    <Drawer.Screen name="Home" component={HomeScreen}/>
+                    <Drawer.Screen name="Notifications" component={NotificationsScreen}/>
+                    <Drawer.Screen name="Top Up" component={TopUpScreen}/>
+                </Drawer.Navigator>
             </NavigationContainer>
+            {/*<NavigationContainer >*/}
+            {/*    <Stack.Navigator>*/}
+            {/*        <Stack.Screen name="TopUpScreen" component={TopUpScreen}/>*/}
+
+            {/*    </Stack.Navigator>*/}
+            {/*</NavigationContainer>*/}
         </NativeBaseProvider>
     );
 }
